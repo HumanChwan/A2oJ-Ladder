@@ -4,8 +4,7 @@
 using namespace std;
 
 int main(){
-    int n = 101;
-    int t = 2;
-    cout<<((float)n/t);
+    string n = "101";
+    cout<<(int)n[1] - 48;
     return 0;
 }
