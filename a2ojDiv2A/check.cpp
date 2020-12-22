@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    string n = "101";
-    cout<<(int)n[1] - 48;
+    int n = -3;
+    cout<<(n)%6;
     return 0;
 }
