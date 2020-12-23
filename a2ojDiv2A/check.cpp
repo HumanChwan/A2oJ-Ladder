@@ -1,10 +1,11 @@
 #include <iostream>
-#include <math.h>
+#include <vector>
 
 using namespace std;
 
 int main(){
-    int n = -3;
-    cout<<(n)%6;
+    vector<int> n;
+    n.push_back(cin>>);
+    cout<<n.at(0);
     return 0;
 }
