@@ -16,6 +16,7 @@ int main(){
     vector<int> r(n, 0);
     vector<int> c(m, 0); 
     bool p = false;
+    bool q = false;
     fl(i, 0, n){ 
         vector<int> t;
         p = false;
@@ -23,6 +24,7 @@ int main(){
         fl(j, 0, m){
             //s += e[i][j];
             if(e[i][j] == 0){
+                if(!q) q = true;
                 if(t.size() != 0 && r[i] == 0){
                     p = true;
                     fl(k, 0, t.size()) c[t[k]] = 1;
@@ -57,12 +59,23 @@ int main(){
         return 0;
     }*/
     cout<<"YES"<<endl;
-    fl(i, 0, n){
-        fl(j, 0, m){
-            if(r[i] == 1 && c[j] == 1) cout<<1;
-            else cout<<0;
-            if(j != m-1) cout<<" ";
-            else cout<<endl;
+    if(!q){
+        fl(i, 0, n){
+            fl(j, 0, m){
+                cout<<1;
+                if(j != m-1) cout<<" ";
+                else cout<<endl;
+                }
+        }
+    }
+    else{
+        fl(i, 0, n){
+            fl(j, 0, m){
+                if(r[i] == 1 && c[j] == 1) cout<<1;
+                else cout<<0;
+                if(j != m-1) cout<<" ";
+                else cout<<endl;
+            }
         }
     }
     return 0;
