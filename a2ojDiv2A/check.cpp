@@ -1,11 +1,14 @@
 #include <iostream>
-#include <algorithm>
+#include <set>
 
+using namespace std;
 int main(){
-    std :: string s = "hgfacb";
-    std :: sort(s.begin(), s.end());
-    //if(n & 1) std :: cout << "happy!";
-    std :: cout << s;
+    set<int> s{7, 8, 9, 10, 11};
+    set<int>::iterator it;
+    it = s.begin();
+    it++;
+    s.erase(it);
+    cout << *it; 
     return 0;
 }
 

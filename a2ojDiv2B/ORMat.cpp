@@ -15,14 +15,12 @@ int main(){
     fl(i, 0, n) fl(j, 0, m) cin>>e[i][j];
     vector<int> r(n, 0);
     vector<int> c(m, 0); 
-    bool p = false;
     bool q = false;
+    bool zc = true;
     fl(i, 0, n){ 
         vector<int> t;
-        p = false;
         bool p = false;
         fl(j, 0, m){
-            //s += e[i][j];
             if(e[i][j] == 0){
                 if(!q) q = true;
                 if(t.size() != 0 && r[i] == 0){
@@ -47,19 +45,24 @@ int main(){
             else if(e[i][j] == 1 && (r[i] == -1 && c[j] != -1)) c[j] = 1;
             else if(e[i][j] == 1 && (r[i] != -1 && c[j] == -1)) r[i] = 1;
             else t.pb(j);
+            if(e[i][j] == 1) zc = false;
             
         }
         if(!p && t.size() > 0) r[i] = 1;
-        /*if(t.size() != 0 && !p){
-            fl(k, 0, t.size()) c[t[k]] = 1;
-        }*/
     }
-    /*if(s < n+m-1){
-        cout<<"NO";
+    if(zc){
+        cout << "YES" << endl;
+        fl(i, 0, n){
+            fl(j, 0, m){
+                cout<<0;
+                if(j != m-1) cout<<" ";
+                else cout<<endl;
+                }
+        }
         return 0;
-    }*/
-    cout<<"YES"<<endl;
+    }
     if(!q){
+        cout<<"YES"<<endl;
         fl(i, 0, n){
             fl(j, 0, m){
                 cout<<1;
@@ -67,16 +70,34 @@ int main(){
                 else cout<<endl;
                 }
         }
+        return 0;
     }
-    else{
-        fl(i, 0, n){
-            fl(j, 0, m){
-                if(r[i] == 1 && c[j] == 1) cout<<1;
-                else cout<<0;
-                if(j != m-1) cout<<" ";
-                else cout<<endl;
-            }
+    bool cb = false, rb = false;
+    for(auto& it : r){
+        if(it == 1){
+            rb = true;
+            break;
+        }
+    } 
+    for(auto& it : c){
+        if(it == 1){
+            cb = true;
+            break;
         }
     }
+    if(!cb || !rb){
+        cout << "NO";
+        return 0;
+    }
+    cout<<"YES"<<endl;
+    fl(i, 0, n){
+        fl(j, 0, m){
+            if(r[i] == 1 && c[j] == 1) cout<<1;
+            else cout<<0;
+            if(j != m-1) cout<<" ";
+            else cout<<endl;
+        }
+    }
+    
     return 0;
 }
