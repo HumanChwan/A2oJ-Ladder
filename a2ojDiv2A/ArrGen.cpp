@@ -19,6 +19,7 @@ int main(){
             im = i;
         }
     }
+    cout << "hello";
     if(iM > im){
         cout<<((iM) + (n - 2 - im));
     }
