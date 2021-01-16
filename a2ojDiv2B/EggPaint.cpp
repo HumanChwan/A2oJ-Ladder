@@ -9,7 +9,7 @@
 
 using namespace std;
 
-/*bool sortbysec(const pair<int,int> &a,
+/*bool SortGrtScnd(const pair<int,int> &a,
                 const pair<int,int> &b)
 {
     return (a.second > b.second);
@@ -18,22 +18,25 @@ using namespace std;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int p, q, l, r, t1, t2;
-    cin >> p >> q >> l >> r; 
-    vector <pair<int, int>> ab, cd;
-    fl(i, 0, p){
-        cin >> t1 >> t2;
-        ab.pb(make_pair(t1, t2));
-    }
-    fl(i, 0, q){
-        cin >> t1 >> t2;
-        cd.pb(make_pair(t1, t2));
-    }
-    int i = 0;
-    fl(j, l, r+1){
-        while(i < p){
-            if(a[i] < c[i])
+    int n, a, g, d = 0;
+    cin >> n;
+    string s = "";
+    fl(i, 0, n){
+        cin >> a >> g;
+        if(abs(d+a) < abs(d+a-1000)){
+            d += a;
+            s += 'A';
         }
+        else{
+            d += a-1000;
+            s += 'G';
+        }
+    }
+    if(abs(d) > 500){
+        cout << -1;
+    }
+    else{
+        cout << s;
     }
     return 0;
 }

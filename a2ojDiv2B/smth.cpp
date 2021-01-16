@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+//#include <vector>
 #define pf printf
 #define sf scanf
 #define pb push_back
@@ -18,21 +18,25 @@ using namespace std;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int p, q, l, r, t1, t2;
-    cin >> p >> q >> l >> r; 
-    vector <pair<int, int>> ab, cd;
-    fl(i, 0, p){
-        cin >> t1 >> t2;
-        ab.pb(make_pair(t1, t2));
-    }
-    fl(i, 0, q){
-        cin >> t1 >> t2;
-        cd.pb(make_pair(t1, t2));
-    }
-    int i = 0;
-    fl(j, l, r+1){
-        while(i < p){
-            if(a[i] < c[i])
+    int t;
+    cin >> t;
+    while(t--){
+        int n, m;
+        cin >> n >> m;
+        int sum = 0, mh, rn;
+        fl(i, 0, n){
+            cin >> rn;
+            if(!i) mh = rn;
+            else{
+                sum += rn;
+            } 
+        }
+        if(sum + mh >= m){
+            cout << m << endl;
+
+        }
+        else{
+            cout << sum + mh << endl;
         }
     }
     return 0;

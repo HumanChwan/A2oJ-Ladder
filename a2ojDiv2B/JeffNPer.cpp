@@ -43,7 +43,8 @@ int main(){
                 else{
                     if(d != i - tpi){
                         s.erase(itr);
-                        ++itr;
+                        cout << *itr << "<->" << *(++itr);
+                        --itr;
                         if(++itr != s.end()) --itr;
                         break;
                     }
@@ -54,7 +55,7 @@ int main(){
         }
     }
     int i = 0;
-    cout << dm.size() << endl;
+    cout << s.size() << endl;
     for(itr = s.begin(); itr != s.end(); itr++){
         cout << *itr << " " << dm[i] << endl;
         i++;
